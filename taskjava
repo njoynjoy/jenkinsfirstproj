@@ -1,18 +1,17 @@
 pipeline {
   agent none
   stages {
-    stage('mvn clean install') {
-      agent {
-        docker { image 'maven:3.8.1-adoptopenjdk-11' }
-      }
+    stage('Build') {
       steps {
-        sh '// Your First Program
-
-class HelloWorld {
+       sh ' mnv clean install package'
+    }
+steps{
+sh 'class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello, World!"); 
     }
-}'
+}
+}
       }
     }
     stage('Front-end') {
